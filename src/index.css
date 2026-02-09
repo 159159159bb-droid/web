@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+:root {
+  --primary-pink: #ff7eb3;
+  --secondary-pink: #ff758c;
+  --dark-red: #c70039;
+  --text-color: #4a4a4a;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* 移除 body 上的 background，改用 fixed 偽元素 */
+  color: var(--text-color);
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 確保內容層級正確 */
+}
+
+/* 浪漫背景漸層覆蓋 - 改為 fixed */
+body::before {
+  content: "";
+  position: fixed; /* 關鍵修改：固定背景，不隨捲動移動 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* 基礎底色 */
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); /* 浪漫粉色漸層 */
+  z-index: -1;
+  opacity: 0.8;
+}
+
+h1, h2, h3 {
+  font-family: 'Dancing Script', cursive, 'Noto Sans TC', sans-serif;
+  color: var(--dark-red);
+}
+
+.card-container {
+  max-width: 600px;
+  width: 90%;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-love {
+  background: linear-gradient(45deg, #ff7eb3, #ff758c);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-love:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+}
